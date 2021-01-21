@@ -1,7 +1,4 @@
 #!/bin/bash
-export BGMI_PATH="/app"
-export BANGUMI_PATH="/data"
-
 if [ $1 = "start" ]; then
     if [ -z "$(ls -A $BGMI_PATH)" ]; then
         echo "Can't find any file in /app folder. initialing"

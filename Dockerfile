@@ -1,5 +1,7 @@
 FROM alpine:3.13
 
+ENV BGMI_PATH="/app" BANGUMI_PATH="/data"
+
 ADD ./BGmi /src
 VOLUME [ "/app", "/data" ]
 RUN { \
