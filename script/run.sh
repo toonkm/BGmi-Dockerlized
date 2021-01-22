@@ -1,5 +1,4 @@
 #!/bin/bash
-export BGMI_LOG=debug
 if [ $1 = "start" ]; then
     if [ ! -f /app/initfile ]; then
         echo "Can't find initfile in /app folder. initialing"
