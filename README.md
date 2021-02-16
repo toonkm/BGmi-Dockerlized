@@ -28,7 +28,7 @@ docker run -it -v $(pwd)/app:/app -v $(pwd)/data:/data -p 80:80 fukhak/bgmi
 環境參數:
 不建議覆蓋BGMI_PATH和SAVE_PATH參數，可能影響程序處理。儘量使用-v 本機路徑:/app以及-v 本機路徑:/data
 
-其他參數參考BGmi使用請參考[官方手冊]各項設置的意義(https://github.com/BGmi/BGmi/blob/master/README.cn.md#使用)
+其他參數參考BGmi使用請參考[官方手冊](https://github.com/BGmi/BGmi/blob/master/README.cn.md#使用)各項設置的意義
 
 可以使用的環境參數
 |KEY|默認/可選參數|備注|
