@@ -1,11 +1,13 @@
 #!/bin/bash
-# hardcode location
+#Hardcode
 bgmi config SAVE_PATH $BANGUMI_PATH &> /dev/null
+bgmi source $DATA_SOURCE
+bgmi config ADMIN_TOKEN $ADMIN_TOKEN
+bgmi config ENABLE_GLOBAL_FILTER $ENABLE_GLOBAL_FILTER
+bgmi config GLOBAL_FILTER "$GLOBAL_FILTER"
 
 # environment variables config
-if [ -v DATA_SOURCE ]; then
-    bgmi source $DATA_SOURCE
-fi
+
 if [ -v BANGUMI_MOE_URL ]; then
     bgmi config BANGUMI_MOE_URL $BANGUMI_MOE_URL
 fi
@@ -26,21 +28,6 @@ if [ -v DANMAKU_API_URL ]; then
 fi
 if [ -v LANG ]; then
     bgmi config LANG $LANG
-fi
-if [ -v ADMIN_TOKEN ]; then
-    bgmi config ADMIN_TOKEN $ADMIN_TOKEN
-fi
-
-if [ -v ENABLE_GLOBAL_FILTER ]; then
-    bgmi config ENABLE_GLOBAL_FILTER $ENABLE_GLOBAL_FILTER
-fi
-
-if [ -v GLOBAL_FILTER ]; then
-    if [ $GLOBAL_FILTER = "default" ] || [ $GLOBAL_FILTER = "DEFAULT" ]; then
-        bgmi config GLOBAL_FILTER "Leopard-Raws, hevc, x265, c-a Raws, U3-Web"
-    else
-        bgmi config GLOBAL_FILTER $GLOBAL_FILTER
-    fi
 fi
 
 if [ -v TORNADO_SERVE_STATIC_FILES ]; then

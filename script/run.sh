@@ -1,19 +1,17 @@
 #!/bin/bash
 if [ $1 = "start" ]; then
-    if [ ! -f /app/initfile ]; then
-        echo "Can't find initfile in /app folder. initialing"
-        touch /app/initfile
+    if [ ! -f ${BGMI_PATH}/initfile ]; then
+        echo "Can't find initfile in ${BGMI_PATH} folder. initialing"
+        touch ${BGMI_PATH}/initfile
         bgmi
         echo "Get environment and configure"
         /script/config.sh
-    else 
-        if [ "$OVERRIDE" = true ]; then
-        echo "Overriding setting..."
-        /script/config.sh
-        fi
+        bgmi install
     fi
-    bgmi install
     bgmi cal --download-cover
+    echo "*/30 * * * * /usr/bin/bgmi update --download" | crontab -
+    crond
+
     bgmi_http --port=80 --address=0.0.0.0
 else
     $@
