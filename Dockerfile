@@ -5,7 +5,8 @@ ENV DATA_SOURCE="bangumi_moe" ADMIN_TOKEN="1234"
 ENV ENABLE_GLOBAL_FILTER="true" GLOBAL_FILTER="Leopard-Raws, hevc, x265, c-a Raws, U3-Web"
 
 ADD ./BGmi /src
-VOLUME [ ${BGMI_PATH}, ${BANGUMI_PATH} ]
+VOLUME ${BGMI_PATH}
+VOLUME ${BANGUMI_PATH}
 RUN { \
 	apk add --update bash python3 curl gcc musl-dev python3-dev libffi-dev openssl-dev cargo; \
 	curl https://bootstrap.pypa.io/get-pip.py | python3; \
